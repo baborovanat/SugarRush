@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 51b22d6e26ac3ce4e9f072033d04bd48
+  - enabled: 1
+    path: Assets/Scenes/Feedback.unity
+    guid: 8c086b7e556338b40a3cbb573821346f
   m_configObjects: {}

@@ -41,6 +41,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Login");
     }
+
+    public void Feedback()
+    {
+        SceneManager.LoadScene("Feedback");
+    }
         
     public void QuitGame()
     {

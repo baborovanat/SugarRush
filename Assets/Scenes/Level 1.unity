@@ -4716,7 +4716,7 @@ MonoBehaviour:
   ScoreText: {fileID: 222517272}
   HighScoreText: {fileID: 0}
   pointIncreasedPerSecond: 1
-  player: {fileID: 0}
+  player: {fileID: 1946464681}
 --- !u!4 &1643125628
 Transform:
   m_ObjectHideFlags: 0

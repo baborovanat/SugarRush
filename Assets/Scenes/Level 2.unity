@@ -1936,6 +1936,7 @@ MonoBehaviour:
   slider: {fileID: 2051790944}
   exposure: 0
   brightnessTextUI: {fileID: 1067048689}
+  playerManager: {fileID: 0}
 --- !u!114 &545695264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3424,7 +3425,7 @@ MonoBehaviour:
   ScoreText: {fileID: 2067940494}
   scoreAmount: 0
   pointIncreasedPerSecond: 1
-  player: {fileID: 0}
+  player: {fileID: 1946464681}
 --- !u!1 &1170861295
 GameObject:
   m_ObjectHideFlags: 0

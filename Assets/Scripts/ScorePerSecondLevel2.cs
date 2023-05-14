@@ -8,7 +8,7 @@ using PlayFab.ClientModels;
 public class ScorePerSecondLevel2 : MonoBehaviour
 {
     public Text ScoreText;
-    public float scoreAmount;
+    public static float scoreAmount;
     public float pointIncreasedPerSecond;
     public Player player;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class ScorePerSecondLevel2 : MonoBehaviour
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
             SaveScore();
-            NewScore();
+            NewScore2();
         }
 
         if (PlayerManager.isGameStarted)
@@ -82,23 +82,23 @@ public class ScorePerSecondLevel2 : MonoBehaviour
     }
 
 
-    public void NewScore()
+    public void NewScore2()
     {
         var request = new ExecuteCloudScriptRequest
         {
-            FunctionName = "newScore",
+            FunctionName = "newScore2",
             FunctionParameter = new
             {
                 name = PlayfabManager.emailInputString,
                 score = Mathf.Floor(scoreAmount).ToString()
             }
         };
-        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess4, OnError);
+        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess6, OnError);
     }
 
-    void OnExecuteSuccess4(ExecuteCloudScriptResult result)
+    void OnExecuteSuccess6(ExecuteCloudScriptResult result)
     {
-        Debug.Log("new score");
+        Debug.Log("new score2");
     }
 
 

@@ -3423,7 +3423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 2067940494}
-  scoreAmount: 0
   pointIncreasedPerSecond: 1
   player: {fileID: 1946464681}
 --- !u!1 &1170861295
@@ -5370,6 +5369,8 @@ MonoBehaviour:
   maxSpeed: 17
   playerManager: {fileID: 1691536389}
   scorePerSecond: {fileID: 1167969015}
+  scorePerSecondLevel1: {fileID: 0}
+  scorePerSecondLevel2: {fileID: 1167969017}
   laneDistance: 2.5
   jumpForce: 15
   Gravity: -20

@@ -14,6 +14,8 @@ public class PlayfabManager : MonoBehaviour
     public TMP_InputField emailInput;
     public TMP_InputField passwordInput;
     public Text output;
+    public TMP_InputField topicInput;
+    public TMP_InputField messageInput;
 
     private IEnumerator WaitForSceneLoad()
     {
@@ -60,6 +62,11 @@ public class PlayfabManager : MonoBehaviour
     void OnExecuteSuccess2(ExecuteCloudScriptResult result)
     {
         Debug.Log("new discord message");
+    }
+
+    void OnExecuteSuccess3(ExecuteCloudScriptResult result)
+    {
+        Debug.Log("new feedback");
     }
 
     public void ResetPasswordButton()
@@ -143,6 +150,21 @@ public class PlayfabManager : MonoBehaviour
     public void GetCharacters()
     {
 
+    }
+
+    public void SendFeedback()
+    {
+        var request = new ExecuteCloudScriptRequest
+        {
+            FunctionName = "sendFeedback",
+            FunctionParameter = new
+            {
+                topic = topicInput.text,
+                message = messageInput.text,
+                name = emailInput.text
+            }
+        };
+        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess3, OnError);
     }
 
 }

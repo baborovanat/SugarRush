@@ -5510,6 +5510,8 @@ MonoBehaviour:
   maxSpeed: 17
   playerManager: {fileID: 1691536389}
   scorePerSecond: {fileID: 1643125627}
+  scorePerSecondLevel1: {fileID: 1643125629}
+  scorePerSecondLevel2: {fileID: 0}
   laneDistance: 2.5
   jumpForce: 15
   Gravity: -20

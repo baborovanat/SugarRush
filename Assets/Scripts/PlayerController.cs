@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public PlayerManager playerManager;
     public ScorePerSecond scorePerSecond;
+    public ScorePerSecondLevel1 scorePerSecondLevel1;
+    public ScorePerSecondLevel2 scorePerSecondLevel2;
 
     private int desiredLane = 1;
     public float laneDistance = 4;
@@ -149,6 +151,9 @@ public class PlayerController : MonoBehaviour
             PlayerManager.gameOver = true;
             playerManager.SaveCoins();
             scorePerSecond.SaveScore();
+            scorePerSecond.NewScore();
+            scorePerSecondLevel1.NewScore1();
+            scorePerSecondLevel2.NewScore2();
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
     }

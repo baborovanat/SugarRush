@@ -28,10 +28,22 @@ public class ScorePerSecondLevel2 : MonoBehaviour
             NewScore2();
         }
 
+        if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
+        {
+
+            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+
+        }
+        else
+        {
+            scoreAmount += 0;
+        }
+
+
         if (PlayerManager.isGameStarted)
         {
             ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
-            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+           // scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
             Utils.SavePrefs("Score", scoreAmount);
 
             //nacist highscore

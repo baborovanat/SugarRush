@@ -25,6 +25,7 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
             SaveScore();
+            NewScore();
         }
 
         if (PlayerManager.isGameStarted) { 
@@ -78,5 +79,25 @@ public class ScorePerSecondLevel1 : MonoBehaviour
     {
         Debug.Log(error.GenerateErrorReport());
     }
+
+    public void NewScore()
+    {
+        var request = new ExecuteCloudScriptRequest
+        {
+            FunctionName = "newScore",
+            FunctionParameter = new
+            {
+                name = PlayfabManager.emailInputString,
+                score = Mathf.Floor(scoreAmount).ToString()
+            }
+        };
+        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess4, OnError);
+    }
+
+    void OnExecuteSuccess4(ExecuteCloudScriptResult result)
+    {
+        Debug.Log("new score");
+    }
+
 
 }

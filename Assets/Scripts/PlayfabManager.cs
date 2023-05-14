@@ -9,9 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayfabManager : MonoBehaviour
 {
+   
+
     [Header("UI")]
     public Text messageText;
     public TMP_InputField emailInput;
+    public static string emailInputString;
     public TMP_InputField passwordInput;
     public Text output;
     public TMP_InputField topicInput;
@@ -69,6 +72,11 @@ public class PlayfabManager : MonoBehaviour
         Debug.Log("new feedback");
     }
 
+    void OnExecuteSuccess4(ExecuteCloudScriptResult result)
+    {
+        Debug.Log("new score");
+    }
+
     public void ResetPasswordButton()
     {
         var request = new SendAccountRecoveryEmailRequest
@@ -87,7 +95,9 @@ public class PlayfabManager : MonoBehaviour
     void Start()
     {
     //    Login();
-   }
+   
+       
+    }
 
     private void Update()
     {
@@ -127,6 +137,8 @@ public class PlayfabManager : MonoBehaviour
         Debug.Log("Successful log in");
         GetCharacters();
         StartCoroutine(WaitForSceneLoad());
+        emailInputString += emailInput.text;
+        Debug.Log($"mail: {emailInputString}");
 
         var request = new ExecuteCloudScriptRequest
         {
@@ -166,6 +178,8 @@ public class PlayfabManager : MonoBehaviour
         };
         PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess3, OnError);
     }
+
+    
 
 }
 

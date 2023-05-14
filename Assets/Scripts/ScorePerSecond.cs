@@ -33,13 +33,23 @@ public class ScorePerSecond : MonoBehaviour
          NewScore();
         }
 
-      
+        if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
+        {
+           // ScoreText.text = "Score: " + (int)scoreAmount;
+            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+           // Utils.SavePrefs("Score", scoreAmount);
+        }
+        else
+        {
+            scoreAmount += 0;
+        }
 
         if (PlayerManager.isGameStarted )
-        {
-            ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
-            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
-            Utils.SavePrefs("Score", scoreAmount);
+       {
+       
+           ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
+           // scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+           Utils.SavePrefs("Score", scoreAmount);
 
             //nacist highscore
             var currentHighScore = Utils.LoadPrefs("HighScore") ;

@@ -8,7 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 { private QuitButton quitButton;
-   void Start()
+    ScorePerSecond scorePerSecond;
+    
+    
+    
+    void Start()
+
+
+
     { 
         quitButton = GetComponent<QuitButton>();
         //quitButton.onClick.AddListener(QuitGame);
@@ -55,6 +62,7 @@ public class MainMenu : MonoBehaviour
 #endif
         
         Application.Quit();
+       // scorePerSecond.NewScore();
     }
 
    }

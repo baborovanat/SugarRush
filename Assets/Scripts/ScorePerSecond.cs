@@ -20,6 +20,8 @@ public class ScorePerSecond : MonoBehaviour
         scoreAmount = 0;
         pointIncreasedPerSecond = 1f;
     }
+   
+
 
     // Update is called once per frame
     void Update()
@@ -27,8 +29,11 @@ public class ScorePerSecond : MonoBehaviour
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
             SaveScore();
-            NewScore();
+            
+         NewScore();
         }
+
+      
 
         if (PlayerManager.isGameStarted )
         {
@@ -86,9 +91,11 @@ public class ScorePerSecond : MonoBehaviour
     }
 
 
-    public void NewScore()
+    public  void NewScore()
     {
-        var request = new ExecuteCloudScriptRequest
+       
+
+            var request = new ExecuteCloudScriptRequest
         {
             FunctionName = "newScore",
             FunctionParameter = new

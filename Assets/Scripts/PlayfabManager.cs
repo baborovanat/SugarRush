@@ -179,7 +179,6 @@ public class PlayfabManager : MonoBehaviour
         PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess3, OnError);
     }
 
-    
 
 }
 

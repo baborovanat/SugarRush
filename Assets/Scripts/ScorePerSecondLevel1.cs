@@ -4,23 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
-
 public class ScorePerSecondLevel1 : MonoBehaviour
 {
     public Text ScoreText;
     public static float scoreAmount;
     public float pointIncreasedPerSecond;
     public Player player;
-
-
     // Start is called before the first frame update
     void Start()
     {
-      scoreAmount = ScorePerSecond.scoreAmount;
+        scoreAmount = ScorePerSecond.scoreAmount;
         pointIncreasedPerSecond = 1f;
         ScoreText.text = "Score: " + (int)ScorePerSecond.scoreAmount;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,11 +26,11 @@ public class ScorePerSecondLevel1 : MonoBehaviour
             NewScore1();
         }
 
-        if (PlayerManager.isGameStarted && (Player.currentHealth > 1f && Player.currentHealth < 25f))
+        if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
         {
-           
+
             scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
-            
+
         }
         else
         {
@@ -42,10 +38,12 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         }
 
 
-        if (PlayerManager.isGameStarted) { 
-        ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
-      //  scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
-        Utils.SavePrefs("Score", scoreAmount);
+        if (PlayerManager.isGameStarted)
+        {
+            ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
+            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+            //  scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+            Utils.SavePrefs("Score", scoreAmount);
 
             //nacist highscore
             var currentHighScore = Utils.LoadPrefs("HighScore");
@@ -70,7 +68,6 @@ public class ScorePerSecondLevel1 : MonoBehaviour
             }
         }
     }
-
     public void SaveScore()
     {
         var request = new UpdateUserDataRequest
@@ -81,23 +78,17 @@ public class ScorePerSecondLevel1 : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
-
     }
-
     void OnDataSend(UpdateUserDataResult result)
     {
         Debug.Log("Seccessful user data send!");
     }
-
     void OnError(PlayFabError error)
     {
         Debug.Log(error.GenerateErrorReport());
     }
-
     public void NewScore1()
     {
-
-
         var request = new ExecuteCloudScriptRequest
         {
             FunctionName = "newScore1",
@@ -109,11 +100,8 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         };
         PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess5, OnError);
     }
-
     void OnExecuteSuccess5(ExecuteCloudScriptResult result)
     {
         Debug.Log("new score1");
     }
-
-
 }

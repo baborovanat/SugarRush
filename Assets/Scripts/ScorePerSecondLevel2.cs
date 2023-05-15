@@ -18,7 +18,6 @@ public class ScorePerSecondLevel2 : MonoBehaviour
         pointIncreasedPerSecond = 1f;
         ScoreText.text = "Score: " + (int)ScorePerSecondLevel1.scoreAmount;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +27,7 @@ public class ScorePerSecondLevel2 : MonoBehaviour
             NewScore2();
         }
 
-        if (PlayerManager.isGameStarted && (Player.currentHealth > 1f && Player.currentHealth < 25f))
+        if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
         {
 
             scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
@@ -43,7 +42,8 @@ public class ScorePerSecondLevel2 : MonoBehaviour
         if (PlayerManager.isGameStarted)
         {
             ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
-           // scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+            // scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
             Utils.SavePrefs("Score", scoreAmount);
 
             //nacist highscore
@@ -69,7 +69,6 @@ public class ScorePerSecondLevel2 : MonoBehaviour
             }
         }
     }
-
     public void SaveScore()
     {
         var request = new UpdateUserDataRequest
@@ -80,20 +79,15 @@ public class ScorePerSecondLevel2 : MonoBehaviour
             }
         };
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
-
     }
-
     void OnDataSend(UpdateUserDataResult result)
     {
         Debug.Log("Seccessful user data send!");
     }
-
     void OnError(PlayFabError error)
     {
         Debug.Log(error.GenerateErrorReport());
     }
-
-
     public void NewScore2()
     {
         var request = new ExecuteCloudScriptRequest
@@ -107,11 +101,8 @@ public class ScorePerSecondLevel2 : MonoBehaviour
         };
         PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess6, OnError);
     }
-
     void OnExecuteSuccess6(ExecuteCloudScriptResult result)
     {
         Debug.Log("new score2");
     }
-
-
 }

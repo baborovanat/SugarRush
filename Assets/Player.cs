@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public static float currentHealth;
     //public GameObject apple;
     GamePreferencesManager gamePreferencesManager;
+    PlayfabManager playfabManager;
+
 
     // public GameObject gameOverPanel;
     public HealthBar healthBar;
@@ -84,6 +86,12 @@ public class Player : MonoBehaviour
           //  PlayerManager.SaveCoins();
             PlayerManager.gameOver = true;
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
+            
+
+
+           // scorePerSecond.NewScore();
+            //scorePerSecondLevel1.NewScore1();
+           // scorePerSecondLevel2.NewScore2();
         }
     }
 

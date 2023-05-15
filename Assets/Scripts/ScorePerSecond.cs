@@ -13,12 +13,14 @@ public class ScorePerSecond : MonoBehaviour
     public static float scoreAmount;
     public float pointIncreasedPerSecond;
     public Player player;
+    public static int scoreAmountInt;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreAmount = 0;
         pointIncreasedPerSecond = 1f;
+       // scoreAmountInt = (int)ScorePerSecond.scoreAmount;
     }
    
 

@@ -24,13 +24,13 @@ public class Icecream : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 29f;
+            Player.currentHealth += 14.79f;//29f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
             Destroy(gameObject);
             //  player.TakeDamage(20f) * Time.deltaTime;  //nove
 
-            StartCoroutine(player.TakeDamageForSeconds(14,5));
+            StartCoroutine(player.TakeDamageForSeconds(7,5));
         }
     }
 }

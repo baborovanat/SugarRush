@@ -23,7 +23,7 @@ public class Watermelon : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 11f;
+            Player.currentHealth += 7.92f;// 11f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
 

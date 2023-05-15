@@ -26,7 +26,7 @@ public class Orange : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 11f;
+            Player.currentHealth += 4.73f;// 11f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
 

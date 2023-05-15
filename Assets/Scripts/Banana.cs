@@ -23,7 +23,7 @@ public class Banana : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 24f;
+            Player.currentHealth += 12.24f; //24
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
 

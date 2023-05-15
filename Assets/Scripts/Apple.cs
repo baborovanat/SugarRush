@@ -25,7 +25,7 @@ public class Apple : MonoBehaviour
         if (other.tag == "Player")
         {
             //sem dopisu pomoci reference na healthbar, ze dostanu zdravi
-            Player.currentHealth += 15f;
+            Player.currentHealth += 5.4f; //15
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfA += 1;
             Debug.Log("Apples: "+PlayerManager.numberOfA);

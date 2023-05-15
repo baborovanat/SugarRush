@@ -24,11 +24,11 @@ public class Grapes : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 85f;
+            Player.currentHealth += 45.05f; //85f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
-            player.TakeDamage(100f);//nove
-
+            // player.TakeDamage(100f);//nove
+            StartCoroutine(player.TakeDamageForSeconds(7, 5));
             Destroy(gameObject);
 
         }

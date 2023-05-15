@@ -24,10 +24,10 @@ public class Pizza : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 21f;
+            Player.currentHealth += 16.08f;//21f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
-            StartCoroutine(player.TakeDamageForSeconds(10, 5));
+            StartCoroutine(player.TakeDamageForSeconds(6, 5));
             Destroy(gameObject);
 
         }

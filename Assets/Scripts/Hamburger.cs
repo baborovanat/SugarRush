@@ -24,12 +24,12 @@ public class Hamburger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Player.currentHealth += 48f;
+            Player.currentHealth += 31.68f;//48f;
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfBananas += 1;
-            player.TakeDamage(100f);//nove
+           // player.TakeDamage(100f);//nove
             Destroy(gameObject);
-            StartCoroutine(player.TakeDamageForSeconds(20, 5));
+            StartCoroutine(player.TakeDamageForSeconds(15, 5));
 
         }
     }

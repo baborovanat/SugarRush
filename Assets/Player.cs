@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (PlayerManager.isGameStarted == true)
-            TakeDamage(5f);
+            TakeDamage(3f);
 
         //nefunguje take damage u nezdraveho ovoce hrozny, zmrzka a burger
 

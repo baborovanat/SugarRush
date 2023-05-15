@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
+   
 { private QuitButton quitButton;
     ScorePerSecond scorePerSecond;
+    public TextMeshProUGUI mailTxt;
     
     
     
@@ -16,7 +19,8 @@ public class MainMenu : MonoBehaviour
 
 
 
-    { 
+    {
+        mailTxt.text = ($"{PlayfabManager.emailInputString}");
         quitButton = GetComponent<QuitButton>();
         //quitButton.onClick.AddListener(QuitGame);
     }

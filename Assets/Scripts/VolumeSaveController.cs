@@ -7,11 +7,11 @@ public class VolumeSaveController : MonoBehaviour
 {
 
     [SerializeField] private Slider volumeSlider = null;
-         [SerializeField] private Text volumeTextUI = null;
+       //  [SerializeField] private Text volumeTextUI = null;
 
     public void VolumeSlider(float volume)
     {
-        volumeTextUI.text = volume.ToString("0.0");
+        //volumeTextUI.text = volume.ToString("0.0");
         SaveVolumeButton();
     }
 

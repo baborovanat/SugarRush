@@ -7,7 +7,7 @@ public class ExposureManager : MonoBehaviour
 {
     [SerializeField] private Slider slider = null;
    [SerializeField] private float exposure;
-    [SerializeField] private Text brightnessTextUI = null;
+  //  [SerializeField] private Text brightnessTextUI = null;
    public PlayerManager playerManager;
    // public Light sceneLight;
     //  public Slider slider;
@@ -17,7 +17,7 @@ public class ExposureManager : MonoBehaviour
 
     public void BrightnessSlider(float exposure)
     {
-        brightnessTextUI.text = exposure.ToString("0.0");
+        //brightnessTextUI.text = exposure.ToString("0.0");
         SaveBrightnessButton();
         
         // if (exposure == 0.1f)

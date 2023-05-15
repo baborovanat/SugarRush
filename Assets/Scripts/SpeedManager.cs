@@ -7,13 +7,13 @@ public class SpeedManager : MonoBehaviour
 {
     [SerializeField] private Slider slider = null;
     [SerializeField] private float speed;
-    [SerializeField] private Text speedTextUI = null;
+   // [SerializeField] private Text speedTextUI = null;
     public PlayerController playerController;
     // Start is called before the first frame update
 
     public void SpeedSlider(float brightness)
     {
-        speedTextUI.text = brightness.ToString("0.0");
+       // speedTextUI.text = brightness.ToString("0.0");
         SaveSpeedButton();
     }
 

@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage * Time.deltaTime;
         healthBar.SetHealth(currentHealth);
 
-        Debug.Log($"Damage: {damage} HP: {currentHealth}");
+       // Debug.Log($"Damage: {damage} HP: {currentHealth}");
     }
 
     public IEnumerator TakeDamageForSeconds(float damage, float duration)
@@ -86,12 +86,9 @@ public class Player : MonoBehaviour
           //  PlayerManager.SaveCoins();
             PlayerManager.gameOver = true;
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
-            
 
 
-           // scorePerSecond.NewScore();
-            //scorePerSecondLevel1.NewScore1();
-           // scorePerSecondLevel2.NewScore2();
+           
         }
     }
 

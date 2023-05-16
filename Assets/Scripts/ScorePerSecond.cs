@@ -14,13 +14,14 @@ public class ScorePerSecond : MonoBehaviour
     public float pointIncreasedPerSecond;
     public Player player;
     public static int scoreAmountInt;
+    PlayfabManager playfabManager;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreAmount = 0;
         pointIncreasedPerSecond = 1f;
-       // scoreAmountInt = (int)ScorePerSecond.scoreAmount;
+        
     }
    
 
@@ -28,18 +29,23 @@ public class ScorePerSecond : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreAmountInt = (int)scoreAmount;
+
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
             SaveScore();
             
          NewScore();
+            SendLeaderboard(scoreAmountInt);//dodelat skore
         }
 
         if (PlayerManager.isGameStarted && (Player.currentHealth > 1f && Player.currentHealth < 25f))
         {
            // ScoreText.text = "Score: " + (int)scoreAmount;
             scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
-           // Utils.SavePrefs("Score", scoreAmount);
+            Debug.Log($"ScoreInt {scoreAmountInt} ");
+           
+            // Utils.SavePrefs("Score", scoreAmount);
         }
         else
         {
@@ -122,6 +128,26 @@ public class ScorePerSecond : MonoBehaviour
     void OnExecuteSuccess4(ExecuteCloudScriptResult result)
     {
         Debug.Log("new score");
+    }
+
+    public void SendLeaderboard(int score) //zmenit
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "PlatformScore",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Successfull leaderboard sent");
     }
 
 }

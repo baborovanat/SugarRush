@@ -12,7 +12,7 @@ public class PlayfabManager : MonoBehaviour
    
 
     [Header("UI")]
-    public Text messageText;
+    public TextMeshProUGUI messageText;
     public TMP_InputField emailInput;
     public static string emailInputString;
     public TMP_InputField passwordInput;

@@ -20,6 +20,7 @@ public class PlayfabManager : MonoBehaviour
     public TMP_InputField topicInput;
     public TMP_InputField messageInput;
 
+
     private IEnumerator WaitForSceneLoad()
     {
         yield return new WaitForSeconds(2);
@@ -46,10 +47,14 @@ public class PlayfabManager : MonoBehaviour
 
     public void LoginButton()
     {
+        // System.Diagnostics.Process.Start("OSK.exe"); //klavesnice pro zobrazeni na display
+
+
         var request = new LoginWithEmailAddressRequest
         {
             Email = emailInput.text,
             Password = passwordInput.text
+            
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
 
@@ -178,25 +183,7 @@ public class PlayfabManager : MonoBehaviour
         };
         PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess3, OnError);
     }
-    public void SendLeaderboard(int score) //zmenit
-    {
-        var request = new UpdatePlayerStatisticsRequest
-        {
-            Statistics = new List<StatisticUpdate>
-            {
-                new StatisticUpdate
-                {
-                    StatisticName = "PlatformScore",
-                    Value = score
-                }
-            }
-        };
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
-    }
-    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result)
-    {
-        Debug.Log("Successfull leaderboard sent");
-    }
+ 
 
 }
 

@@ -75,7 +75,7 @@ public class ScorePerSecondLevel2 : MonoBehaviour
         {
             Data = new Dictionary<string, string>
             {
-                {"Score", Mathf.Floor(scoreAmount).ToString() }
+                {"Score_2", Mathf.Floor(scoreAmount).ToString() }
             }
         };
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);

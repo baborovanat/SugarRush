@@ -24,6 +24,8 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         {
             SaveScore();
             NewScore1();
+            //SendLeaderboard(scoreAmountInt);
+
         }
 
         if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
@@ -74,7 +76,7 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         {
             Data = new Dictionary<string, string>
             {
-                {"Score", Mathf.Floor(scoreAmount).ToString() }
+                {"Score_1", Mathf.Floor(scoreAmount).ToString() }
             }
         };
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);

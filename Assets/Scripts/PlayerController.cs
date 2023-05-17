@@ -150,10 +150,24 @@ public class PlayerController : MonoBehaviour
             //PlayerManager.SaveCoins();
             PlayerManager.gameOver = true;
             playerManager.SaveCoins();
-            scorePerSecond.SaveScore();
-            scorePerSecond.NewScore();
-            scorePerSecondLevel1.NewScore1();
-            scorePerSecondLevel2.NewScore2();
+            if(ScorePerSecondLevel2.scoreAmount > ScorePerSecond.scoreAmount)
+            {
+                scorePerSecondLevel2.SaveScore();
+                scorePerSecondLevel2.NewScore2();
+            }
+            else if (ScorePerSecondLevel1.scoreAmount > ScorePerSecond.scoreAmount)
+            {
+                scorePerSecondLevel1.SaveScore();
+                scorePerSecondLevel1.NewScore1();
+            }
+            else
+            {
+                scorePerSecond.SaveScore();
+                scorePerSecond.NewScore();
+            }
+
+            
+            
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
     }

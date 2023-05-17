@@ -11,6 +11,8 @@ public class ScorePerSecondLevel2 : MonoBehaviour
     public static float scoreAmount;
     public float pointIncreasedPerSecond;
     public Player player;
+    ScorePerSecondLevel1 scorePerSecondLevel1;
+    ScorePerSecond scorePerSecond;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,18 @@ public class ScorePerSecondLevel2 : MonoBehaviour
     {
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
-            SaveScore();
-            NewScore2();
+           // SaveScore();
+            // NewScore2();
+
+            if (ScorePerSecondLevel2.scoreAmount > ScorePerSecond.scoreAmount)
+            {
+               SaveScore();
+               NewScore2();
+            }
+           
+           
+
+
         }
 
         if (PlayerManager.isGameStarted && (Player.currentHealth > 1f && Player.currentHealth < 25f))

@@ -35,7 +35,7 @@ public class ScorePerSecond : MonoBehaviour
         {
             SaveScore();
             
-         NewScore();
+            NewScore();
             SendLeaderboard(scoreAmountInt);//dodelat skore
         }
 

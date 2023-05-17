@@ -22,9 +22,14 @@ public class ScorePerSecondLevel1 : MonoBehaviour
     {
         if (Player.currentHealth < 0f || Player.currentHealth > 100f)
         {
-            SaveScore();
-            NewScore1();
+            //SaveScore();
+            //  NewScore1();
             //SendLeaderboard(scoreAmountInt);
+            if (ScorePerSecondLevel1.scoreAmount > ScorePerSecond.scoreAmount)
+            {
+                SaveScore();
+               NewScore1();
+            }
 
         }
 

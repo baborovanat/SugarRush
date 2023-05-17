@@ -28,7 +28,7 @@ public class ScorePerSecondLevel1 : MonoBehaviour
 
         }
 
-        if (PlayerManager.isGameStarted && (Player.currentHealth > 20f && Player.currentHealth < 45f))
+        if (PlayerManager.isGameStarted && (Player.currentHealth > 1f && Player.currentHealth < 25f))
         {
 
             scoreAmount += pointIncreasedPerSecond * Time.deltaTime;

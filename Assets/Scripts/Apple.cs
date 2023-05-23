@@ -24,11 +24,10 @@ public class Apple : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //sem dopisu pomoci reference na healthbar, ze dostanu zdravi
-            Player.currentHealth += 5.4f; //15
+            Player.currentHealth += 5.4f; 
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfA += 1;
-            Debug.Log("Apples: "+PlayerManager.numberOfA);
+            Debug.Log("Apples: " + PlayerManager.numberOfA);
             Destroy(gameObject);
 
         }

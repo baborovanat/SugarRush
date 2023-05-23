@@ -48,7 +48,7 @@ public class ScorePerSecondLevel1 : MonoBehaviour
         if (PlayerManager.isGameStarted)
         {
             ScoreText.text = "Score: " + (int)scoreAmount; //pretypovani
-            scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
+           // scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
             //  scoreAmount += pointIncreasedPerSecond * Time.deltaTime;
             Utils.SavePrefs("Score", scoreAmount);
 

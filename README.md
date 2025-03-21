@@ -1,6 +1,6 @@
 🍕 Educational Game for Pediatric Patients with Type 1 Diabetes 🍉
 
-This educational game is designed to help pediatric patients with Type 1 diabetes learn about carbohydrate counting in an engaging and interactive way. Developed as part of a Bachelor's thesis at the Faculty of Biomedical Engineering, Czech Technical University in Prague, the game provides a fun and informative experience for young patients.
+This educational game is designed to help pediatric patients with Type 1 diabetes learn about carbohydrate counting in an engaging and interactive way. Developed as part of a Bachelor's thesis at the Faculty of Biomedical Engineering, Czech Technical University in Prague, the game provides a fun and informative experience for young patients. For more info, see my thesis presentation sugarsprint.pdf.
 
 Features
 
